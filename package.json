@@ -1,0 +1,24 @@
+{
+  "name": "ticker-charts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pawelbx/ticker-charts.git"
+  },
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/pawelbx/ticker-charts/issues"
+  },
+  "homepage": "https://github.com/pawelbx/ticker-charts#readme",
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "blessed-contrib": "^4.8.18",
+    "yahoo-finance": "^0.3.6"
+  }
+}
