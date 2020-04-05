@@ -40,7 +40,7 @@ function renderTable(data) {
     interactive: true,
     label: "Securities",
     width: "100%",
-    height: "30%",
+    height: "50%",
     border: { type: "line", fg: "cyan" },
     columnSpacing: 5,
     columnWidth: [6, 10, 15, 15]
@@ -61,12 +61,47 @@ function renderTable(data) {
   screen.render();
 }
 
+async function fetchHistory() {
+  const result = await finance.historical({
+    symbol: "TSLA",
+    from: "2019-01-01",
+    to: "2020-04-01",
+    period: "d"
+  });
+  const x = _.reverse(_.map(result, datum => datum.date));
+  const y = _.reverse(_.map(result, datum => datum.close));
+
+  console.log(x);
+  return { x: x, y: y, sytle: { line: "red" }, title: "hello" };
+}
+function randomColor() {
+  return [Math.random() * 255, Math.random() * 255, Math.random() * 255];
+}
+
+function renderChart(data) {
+  const screen = blessed.screen();
+  const line = contrib.line({
+    width: 50,
+    height: 20,
+    label: "title",
+    left: 15,
+    top: 20,
+    minY: 150,
+    maxY: 1000,
+    style: { line: randomColor(), text: randomColor(), baseline: randomColor() }
+  });
+  screen.append(line);
+  line.setData(data);
+  screen.render();
+}
+
 async function main() {
   const tickers = process.argv.slice(2);
-  const quotes = await fetch(tickers);
-  const data = transform(quotes);
-  console.log(data);
-  renderTable(data);
+  // const quotes = await fetch(tickers);
+  // const data = transform(quotes);
+  // renderTable(data);
+  const history = await fetchHistory();
+  renderChart(history);
 }
 
 main();
