@@ -1,4 +1,4 @@
-const finance = requirqe("yahoo-finance");
+const finance = require("yahoo-finance");
 const blessed = require("blessed");
 const contrib = require("blessed-contrib");
 const colors = require("colors/safe");
