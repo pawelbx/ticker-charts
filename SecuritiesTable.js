@@ -5,7 +5,8 @@ const colors = require("colors/safe");
 const _ = require("lodash");
 
 class SecuritiesTable {
-  constructor(grid, tickers, isMarketOpen) {
+  constructor(screen, grid, tickers, isMarketOpen) {
+    this.screen = screen;
     this.grid = grid;
     this.tickers = tickers;
     this.isMarketOpen = isMarketOpen;
@@ -50,14 +51,15 @@ class SecuritiesTable {
     });
 
     this.table.focus();
+    this.screen.render();
   }
 
   render() {
-    this.table = this.grid.set(0, 0, 10, 20, contrib.table, {
+    this.table = this.grid.set(0, 0, 5, 20, contrib.table, {
       keys: true,
       fg: "white",
       selectedFg: "white",
-      selectedBg: "cyan",
+      selectedBg: "blue",
       interactive: true,
       label: "Securities",
       width: "100%",

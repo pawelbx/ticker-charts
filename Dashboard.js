@@ -11,6 +11,7 @@ class Dashboard {
     this.grid = new contrib.grid({ rows: 20, cols: 20, screen: this.screen });
 
     this.securitiesTable = new SecuritiesTable(
+      this.screen,
       this.grid,
       tickers,
       isMarketOpen
@@ -19,11 +20,6 @@ class Dashboard {
     this.screen.key(["escape", "q", "C-c"], function(ch, key) {
       return process.exit(0);
     });
-    this.render();
-  }
-
-  render() {
-    this.screen.render();
   }
 }
 
