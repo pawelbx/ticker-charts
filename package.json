@@ -21,7 +21,7 @@
     "blessed": "^0.1.81",
     "blessed-contrib": "^4.8.18",
     "dotenv": "^8.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "moment": "^2.24.0",
     "ws": "^7.2.3",
     "yahoo-finance": "^0.3.6"
